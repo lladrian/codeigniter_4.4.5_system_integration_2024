@@ -10,8 +10,8 @@ $routes->get('/register', 'RegisterController::index');
 $routes->get('/login', 'LoginController::index');
 $routes->get('/recovery_account', 'RecoveryController::recovery_account');
 $routes->post('/email_verification', 'RecoveryController::email_verification');
-
 $routes->get('/recovery_code', 'RecoveryController::recovery_code');
+$routes->post('/recovery_code', 'RecoveryController::send');
 
 
 $routes->get('/dashboard', 'DashboardController::index');

@@ -18,6 +18,15 @@ class LoginController extends Controller
 
     public function authenticate()
     {
+
+       // helper('security');
+
+        // Retrieve CSRF token value
+        //$csrfToken = csrf_hash();
+
+        // Display or use the CSRF token value
+        //echo "CSRF Token: " . $csrfToken;
+
         // Validate the form data
         // $validation = Services::validation(); // Change \Config\Services::validation() to Services::validation()
         // $validation->setRules([

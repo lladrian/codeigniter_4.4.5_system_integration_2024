@@ -13,6 +13,44 @@ class RecoveryController extends BaseController
     {
         //
     }
+    public function send()
+    {
+       // echo "submitted";
+        if($this->isonline()) {
+            $to = 'adrian.manatad@evsu.edu.ph';
+          //  $subject = $this->request->getVar('subject'); 
+           // $message = $this->request->getVar('message');
+            $subject = "red"; 
+            $message = "red";
+          
+            $email = \Config\Services::email();
+
+            $email->setTo($to); 
+            $email->setFrom('adrianmanatad5182@gmail.com', 'ADRIAN C. MANATAD'); 
+            $email->setSubject($subject); 
+            $email->setMessage($message); 
+
+            if($email->send()) {
+                return redirect()->to('/recovery_code')->with('success', "Email sent successfully!"); 
+            } else{ 
+                return redirect()->to('/recovery_code')->with('error', "Failed to send.!")->withInput(); 
+            }
+
+        } else {
+           return redirect()->to('/recovery_code')
+                            ->with('error', 'Check your internet connection')
+                            ->withInput(); 
+         }   
+    }
+
+    public function isOnline($site= "https://youtube.com"){ 
+        if(@fopen($site, "r")){ 
+            return true; 
+        }else{
+             return false;
+        }
+    }
+
     public function email_verification() {
         $userModel = new UserModel();
         $session = \Config\Services::session();

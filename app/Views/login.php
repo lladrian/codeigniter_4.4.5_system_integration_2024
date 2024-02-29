@@ -54,7 +54,8 @@ body {
                                 <h1 style="text-align: center;">Login Form</h1>
                                 
                               <form id="login_form" method="post" action="<?= base_url('/login') ?>">
-                                <!-- <div class="col-12 ">
+                              <!-- <?= csrf_field() ?> -->
+                              <!-- <div class="col-12 ">
                                     <div class="input-group mb-2">
                                         <a class="btn btn-danger btn-block" href="scan_qr.php" width="100%" role="button"> Scan QR</a>
                                     </div>

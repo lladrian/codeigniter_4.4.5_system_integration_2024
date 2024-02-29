@@ -53,8 +53,14 @@ body {
 
 
                         <div class="wrapper">
+                        <?php if(!empty(session()->getFlashdata ('error'))) : ?> 
+                            <div class="alert alert-danger"> <?= session()->getFlashdata('error'); ?></div> 
+                        <?php endif ?> 
+                        <?php if(!empty(session()->getFlashdata('success'))) : ?> 
+                            <div class="alert alert-success"> <?= session()->getFlashdata('success'); ?></div>
+                        <?php endif ?>
                             <div class="container">
-                                <form id="otp_form" method="post">
+                                <form method="POST" action="<?= base_url('/recovery_code') ?>">
 
                                     <div class="col-md-12">
                                         <h4 class="card-title pb-1 fs-4 text-center">OTP Verification</h4>

@@ -11,4 +11,6 @@ class EmailController extends BaseController
     {
         echo "SMTP: HELLO WORLD";
     }
+
+  
 }
